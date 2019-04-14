@@ -19,7 +19,7 @@
     "axios": "^0.18.0",
     "bootstrap": "^3.4.1",
     "expose-loader": "^0.7.5",
-    "jquery": "^1.12.4",
+    "jquery": "^3.4.0",
     "vue": "^2.5.2",
     "vue-axios": "^2.1.4",
     "vue-cookies": "^1.5.13",
