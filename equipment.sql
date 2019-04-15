@@ -119,7 +119,13 @@ CREATE TABLE `manage_user` (
   `type` tinyint NOT NULL COMMENT '用户类型',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 comment '用户表';
-
 -- ----------------------------
 -- Records of manage_user
 -- ----------------------------
+
+DROP TABLE IF EXISTS `manage_depart`;
+CREATE TABLE `manage_depart` (
+  `id` tinyint(11) NOT NULL AUTO_INCREMENT COMMENT '部门编号',
+  `depart` varchar(50) NOT NULL COMMENT '部门名称',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='部门表';
