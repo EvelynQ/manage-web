@@ -39,7 +39,7 @@ CREATE TABLE `manage_examine` (
   `equip_id` mediumint DEFAULT NULL COMMENT '设备ID',
   `check_date` date COMMENT '检修日期x-x-x',
   `check_person` smallint NOT NULL COMMENT '检修人员id',
-  `check_state` tinyint DEFAULT 0 COMMENT '运行状况 0- 正常or 1-异常',
+  `check_state` tinyint DEFAULT 0 COMMENT '运行状况 0- 正常or -1-异常',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT '检修表';
 
