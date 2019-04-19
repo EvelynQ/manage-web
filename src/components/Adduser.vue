@@ -64,6 +64,7 @@
         <div class="container">
             <table class="table table-bordered table-hover">
                 <caption class="h4 text-info text-center">用户信息表</caption>
+                <thead>
                 <tr class="text-danger">
                     <th class="text-center">序号</th>
                     <th class="text-center">账号</th>
@@ -73,18 +74,23 @@
                     <th class="text-center">用户类型</th>
                     <th class="text-center">操作</th>
                 </tr>
-                <!--<tr class="text-center" v-for='(item,index) in myData'>-->
-                    <!--<td>{{index}}</td>-->
-                    <!--<td>{{item.account}}</td>-->
-                    <!--<td>{{item.name}}</td>-->
-                    <!--<td>{{item.pass}}</td>-->
-                    <!--<td>{{item.depart}}</td>-->
-                    <!--<td>{{item.type}}</td>-->
-                    <!--<td>-->
-                        <!--<button class="btn btn-danger btn-xs" data-toggle='modal' data-target='#layer' v-on:click="currentUser=index">删除</button>-->
-                    <!--</td>-->
+                </thead>
+                <tbody>
+                <tr class="text-center">
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>
+                        <button class="btn btn-danger btn-xs" data-toggle='modal' data-target='#layer' >删除</button>
+                        <button class="btn btn-danger btn-xs" data-toggle='modal' data-target='#layer' >取消</button>
+                    </td>
 
-                <!--</tr>-->
+
+                </tr>
+                </tbody>
                 <!--<tr v-show="myData.length!=0">-->
                     <!--<td colspan="7" class="text-right">-->
                         <!--<button class="btn btn-danger btn-xs" v-on:click='currentUser="all"' data-toggle='modal' data-target="#layer">全部删除</button>-->

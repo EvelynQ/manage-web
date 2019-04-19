@@ -47,12 +47,14 @@
         <div  class="container">
             <table class="table table-bordered table-hover">
                 <caption class="h4 text-info text-center">种类信息表</caption>
+                <thead>
                 <tr class="text-danger">
                     <th class="text-center">序号</th>
                     <th class="text-center">种类名称</th>
                     <th class="text-center">种类描述</th>
                     <th class="text-center">操作</th>
                 </tr>
+                </thead>
             </table>
         </div>
     </div>

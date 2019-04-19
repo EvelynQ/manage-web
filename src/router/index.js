@@ -8,6 +8,10 @@ import Head from '@/components/Head'
 import Adduser from '@/components/Adduser'
 import Addclass from '@/components/Addclass'
 import Addequip from '@/components/Addequip'
+import Abnormal from '@/components/Abnormal'
+import Check_repair from '@/components/Check_repair'
+import Reject from '@/components/Reject'
+
 Vue.use(Router)
 export default new Router({
   mode: 'history',
@@ -51,6 +55,21 @@ export default new Router({
           path: '/addequip',
           name: 'Addequip',
           component: Addequip
+      },
+      {
+          path: '/abnormal',
+          name: 'Abnormal',
+          component: Abnormal
+      },
+      {
+          path: '/check_repair',
+          name: 'Check_repair',
+          component: Check_repair
+      },
+      {
+          path: '/reject',
+          name: 'Reject',
+          component: Reject
       }
   ]
 })

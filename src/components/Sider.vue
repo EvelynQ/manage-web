@@ -35,10 +35,21 @@
                         <li>
                             <a href="#EquipManage" class="nav-header collapsed" data-toggle="collapse">
 
-                                <i class="glyphicon glyphicon-credit-card"></i>设备管理<span class="pull-right glyphicon glyphicon-chevron-down"></span>
+                                <i class="glyphicon glyphicon-cog"></i>设备管理<span class="pull-right glyphicon glyphicon-chevron-down"></span>
                             </a>
 
                             <ul id="EquipManage" class="nav nav-list collapse secondmenu" style="height: 0px;">
+                                <li><a href="#"><i class="glyphicon glyphicon-asterisk"></i>信息录入</a></li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#RunManage" class="nav-header collapsed" data-toggle="collapse">
+
+                                <i class="glyphicon glyphicon-cog"></i>运行管理<span class="pull-right glyphicon glyphicon-chevron-down"></span>
+                            </a>
+
+                            <ul id="RunManage" class="nav nav-list collapse secondmenu" style="height: 0px;">
                                 <li><a href="#"><i class="glyphicon glyphicon-asterisk"></i>检修管理</a></li>
                                 <li><a href="#"><i class="glyphicon glyphicon-search"></i>异常管理</a></li>
                                 <li><a href="#"><i class="glyphicon glyphicon-wrench"></i>维修管理</a></li>
@@ -46,11 +57,7 @@
 
                             </ul>
                         </li>
-                        <!--<li>-->
 
-                        <!--<a href="#"><i class="glyphicon glyphicon-calendar"></i>图表统计</a>-->
-
-                        <!--</li>-->
                         <li>
                             <a href="#"><i class="glyphicon glyphicon-fire"></i>关于系统</a>
 
