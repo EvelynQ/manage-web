@@ -39,7 +39,7 @@ CREATE TABLE `manage_examine` (
   `equip_id` mediumint DEFAULT NULL COMMENT '设备ID',
   `check_date` date COMMENT '检修日期x-x-x',
   `check_person` smallint NOT NULL COMMENT '检修人员id',
-  `check_state` tinyint DEFAULT 0 COMMENT '运行状况  正常or异常',
+  `check_state` tinyint DEFAULT 0 COMMENT '运行状况 0- 正常or -1-异常',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT '检修表';
 
@@ -60,7 +60,7 @@ CREATE TABLE `manage_info` (
   `proydate` date  COMMENT '生产日期',
   `buydate` date  COMMENT '购买日期',
   `pre_year` tinyint DEFAULT 5 COMMENT '使用年限',
-  `equip_state` tinyint DEFAULT 0 COMMENT '设备状态 0-运行 1-维修 2-报废',
+  `equip_state` tinyint DEFAULT 0 COMMENT '设备状态-1-异常 0-运行 1-维修 2-报废',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT '设备信息表';
 
