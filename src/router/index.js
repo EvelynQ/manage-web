@@ -11,7 +11,8 @@ import Addequip from '@/components/Addequip'
 import Abnormal from '@/components/Abnormal'
 import Check_repair from '@/components/Check_repair'
 import Reject from '@/components/Reject'
-
+import Liuyan from '@/components/Liuyan'
+import Register from '@/components/Register'
 Vue.use(Router)
 export default new Router({
   mode: 'history',
@@ -70,6 +71,16 @@ export default new Router({
           path: '/reject',
           name: 'Reject',
           component: Reject
+      },
+      {
+          path: '/liuyan',
+          name: 'Liuyan',
+          component: Liuyan
+      },
+      {
+          path: '/register',
+          name: 'Register',
+          component: Register
       }
   ]
 })
