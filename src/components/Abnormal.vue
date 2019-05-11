@@ -26,28 +26,28 @@
         </div>
 
         <!--
-                      列表展示
-                  -->
-        <div class="table-responsive" >
+             列表展示
+           -->
+        <!--<div class="table-responsive" >-->
+            <div class="container" >
             <table class="table table-striped" >
                 <thead>
                 <tr>
-                    <th>编号</th>
-                    <th>设备编号</th>
-                    <th>设备类型</th>
-                    <th>运行状态</th>
-                    <th>操作</th>
+                    <th class="text-center" >编号</th>
+                    <th class="text-center" >设备ID</th>
+                    <th class="text-center" >所属类别</th>
+                    <th class="text-center" >设备型号</th>
+                    <th class="text-center" >设备状态</th>
+                    <th class="text-center">操作</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
+                <tr class="text-center">
                     <td>1</td>
-                    <td>
-                        23
-                    </td>
+                    <td>5</td>
                     <td>机床</td>
-
-                    <td>上架</td>
+                    <td>Aell-大型机床</td>
+                    <td>运行</td>
                     <td>
                         <div class="btn-group">
                             <a href="" class="btn btn-default">维修</a><a href="" class="btn btn-danger">报废</a>
@@ -61,12 +61,13 @@
         </div>
 
         <!--分页设置-->
-        <ul class="pagination" style="float: right;">
+       <nav style="text-align: center">
+        <ul class="pagination">
             <li><a href="#">&laquo;</a>
             </li>
             <li class="active"><a href="#">1</a>
             </li>
-            <li class="disabled"><a href="#">2</a>
+            <li class=""><a href="#">2</a>
             </li>
             <li><a href="#">3</a>
             </li>
@@ -77,7 +78,7 @@
             <li><a href="#">&raquo;</a>
             </li>
         </ul>
-
+       </nav>
     </div>
 </template>
 

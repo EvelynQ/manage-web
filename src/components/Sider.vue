@@ -23,10 +23,8 @@
                             <ul id="systemSetting" class="nav nav-list collapse secondmenu" style="height: 0px;">
 
                                 <li><a href="#"><i class="glyphicon glyphicon-user"></i>用户管理</a></li>
-
+                                <li><a href="#"><i class="glyphicon glyphicon-tasks"></i>部门管理</a></li>
                                 <li><a href="#"><i class="glyphicon glyphicon-edit"></i>修改密码</a></li>
-
-                                <li><a href="#"><i class="glyphicon glyphicon-eye-open"></i>日志查看</a></li>
 
                             </ul>
 
@@ -39,7 +37,8 @@
                             </a>
 
                             <ul id="EquipManage" class="nav nav-list collapse secondmenu" style="height: 0px;">
-                                <li><a href="#"><i class="glyphicon glyphicon-asterisk"></i>信息录入</a></li>
+                                <li><a href="#"><i class="glyphicon glyphicon-asterisk"></i>设备管理</a></li>
+                                <li><a href="#"><i class="glyphicon glyphicon-book"></i>种类管理</a></li>
 
                             </ul>
                         </li>
@@ -50,8 +49,8 @@
                             </a>
 
                             <ul id="RunManage" class="nav nav-list collapse secondmenu" style="height: 0px;">
-                                <li><a href="#"><i class="glyphicon glyphicon-asterisk"></i>检修管理</a></li>
-                                <li><a href="#"><i class="glyphicon glyphicon-search"></i>异常管理</a></li>
+                                <li><a href="#"><i class="glyphicon glyphicon-zoom-in"></i>检查管理</a></li>
+                                <li><a href="#"><i class="glyphicon glyphicon-search"></i>记录管理</a></li>
                                 <li><a href="#"><i class="glyphicon glyphicon-wrench"></i>维修管理</a></li>
                                 <li><a href="#"><i class="glyphicon glyphicon-trash"></i>报废管理</a></li>
 

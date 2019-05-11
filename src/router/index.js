@@ -9,10 +9,14 @@ import Adduser from '@/components/Adduser'
 import Addclass from '@/components/Addclass'
 import Addequip from '@/components/Addequip'
 import Abnormal from '@/components/Abnormal'
-import Check_repair from '@/components/Check_repair'
+import Check from '@/components/Check'
 import Reject from '@/components/Reject'
 import Liuyan from '@/components/Liuyan'
 import Register from '@/components/Register'
+import Adddepart from '@/components/Adddepart'
+import Equipinfo from '@/components/Equipinfo'
+import ChangePass from '@/components/ChangePass'
+import Documents from '@/components/Documents'
 Vue.use(Router)
 export default new Router({
   mode: 'history',
@@ -63,9 +67,9 @@ export default new Router({
           component: Abnormal
       },
       {
-          path: '/check_repair',
-          name: 'Check_repair',
-          component: Check_repair
+          path: '/check',
+          name: 'Check',
+          component: Check
       },
       {
           path: '/reject',
@@ -81,6 +85,26 @@ export default new Router({
           path: '/register',
           name: 'Register',
           component: Register
+      },
+      {
+          path: '/adddepart',
+          name: 'Adddepart',
+          component: Adddepart
+      },
+      {
+          path: '/equipinfo',
+          name: 'Equipinfo',
+          component: Equipinfo
+      },
+      {
+          path: '/changepass',
+          name: 'ChangePass',
+          component: ChangePass
+      },
+      {
+          path: '/documents',
+          name: 'Documents',
+          component: Documents
       }
   ]
 })
