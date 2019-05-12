@@ -1,176 +1,110 @@
 <template>
-    <div>
-        <div class="container-fluid">
-
-            <div class="row">
-
-                <div class="col-md-2">
-
-
-                    <ul id="main-nav" class="nav nav-tabs nav-stacked" style="">
-
-                        <li class="active">
-
-                            <a href="#"><i class="glyphicon glyphicon-th-large"></i>功能列表</a>
-
-                        </li>
-
-                        <li>
-                            <a href="#systemSetting" class="nav-header collapsed" data-toggle="collapse">
-                                <i class="glyphicon glyphicon-cog"></i>系统管理<span class="pull-right glyphicon glyphicon-chevron-down"></span>
-                            </a>
-
-                            <ul id="systemSetting" class="nav nav-list collapse secondmenu" style="height: 0px;">
-
-                                <li><a href="#"><i class="glyphicon glyphicon-user"></i>用户管理</a></li>
-                                <li><a href="#"><i class="glyphicon glyphicon-tasks"></i>部门管理</a></li>
-                                <li><a href="#"><i class="glyphicon glyphicon-edit"></i>修改密码</a></li>
-
-                            </ul>
-
-                        </li>
-
-                        <li>
-                            <a href="#EquipManage" class="nav-header collapsed" data-toggle="collapse">
-
-                                <i class="glyphicon glyphicon-cog"></i>设备管理<span class="pull-right glyphicon glyphicon-chevron-down"></span>
-                            </a>
-
-                            <ul id="EquipManage" class="nav nav-list collapse secondmenu" style="height: 0px;">
-                                <li><a href="#"><i class="glyphicon glyphicon-asterisk"></i>设备管理</a></li>
-                                <li><a href="#"><i class="glyphicon glyphicon-book"></i>种类管理</a></li>
-
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#RunManage" class="nav-header collapsed" data-toggle="collapse">
-
-                                <i class="glyphicon glyphicon-cog"></i>运行管理<span class="pull-right glyphicon glyphicon-chevron-down"></span>
-                            </a>
-
-                            <ul id="RunManage" class="nav nav-list collapse secondmenu" style="height: 0px;">
-                                <li><a href="#"><i class="glyphicon glyphicon-zoom-in"></i>检查管理</a></li>
-                                <li><a href="#"><i class="glyphicon glyphicon-search"></i>记录管理</a></li>
-                                <li><a href="#"><i class="glyphicon glyphicon-wrench"></i>维修管理</a></li>
-                                <li><a href="#"><i class="glyphicon glyphicon-trash"></i>报废管理</a></li>
-
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a href="#"><i class="glyphicon glyphicon-fire"></i>关于系统</a>
-
-                        </li>
-
-                    </ul>
-
+    <el-menu
+            class="el-menu-vertical-demo"
+            @open="handleOpen"
+            @close="handleClose"
+            router
+            active-text-color="#ffa400">
+        <el-submenu index="1">
+            <template slot="title">
+                <div style="text-align: left">
+                    <i class="el-icon-setting"></i>
+                    <span>系统管理</span>
                 </div>
-
-                <div class="col-md-10">
-                    这是一个基本的面板
+            </template>
+            <el-menu-item-group>
+                <el-menu-item index="/user">
+                    <div style="font-size: 10px">
+                        <i class="el-icon-user"></i>
+                        <span>用户管理</span>
+                    </div>
+                </el-menu-item>
+                <el-menu-item index="1-2">
+                    <div style="font-size: 10px">
+                        <i class="el-icon-s-unfold"></i>
+                        <span>部门管理</span>
+                    </div>
+                </el-menu-item>
+                <el-menu-item index="1-3">
+                    <div style="font-size: 10px">
+                        <i class="el-icon-edit"></i>
+                        <span>修改密码</span>
+                    </div>
+                </el-menu-item>
+            </el-menu-item-group>
+        </el-submenu>
+        <el-submenu index="2">
+            <template slot="title">
+                <div style="text-align: left">
+                    <i class="el-icon-s-grid"></i>
+                    <span>设备管理</span>
                 </div>
-            </div>
-        </div>
-
-    </div>
+            </template>
+            <el-menu-item-group>
+                <el-menu-item index="2-1">
+                    <div style="font-size: 10px">
+                        <i class="el-icon-s-tools"></i>
+                        <span>设备管理</span>
+                    </div>
+                </el-menu-item>
+                <el-menu-item index="2-2">
+                    <div style="font-size: 10px">
+                        <i class="el-icon-coin"></i>
+                        <span>种类管理</span>
+                    </div>
+                </el-menu-item>
+            </el-menu-item-group>
+        </el-submenu>
+        <el-submenu index="3">
+            <template slot="title">
+                <div style="text-align: left">
+                    <i class="el-icon-s-claim"></i>
+                    <span>运行管理</span>
+                </div>
+            </template>
+            <el-menu-item-group>
+                <el-menu-item index="3-1">
+                    <div style="font-size: 10px">
+                        <i class="el-icon-view"></i>
+                        <span>检查管理</span>
+                    </div>
+                </el-menu-item>
+                <el-menu-item index="3-2">
+                    <div style="font-size: 10px">
+                        <i class="el-icon-postcard"></i>
+                        <span>记录管理</span>
+                    </div>
+                </el-menu-item>
+                <el-menu-item index="3-3">
+                    <div style="font-size: 10px">
+                        <i class="el-icon-brush"></i>
+                        <span>维修管理</span>
+                    </div>
+                </el-menu-item>
+                <el-menu-item index="3-4">
+                    <div style="font-size: 10px">
+                        <i class="el-icon-delete"></i>
+                        <span>报废管理</span>
+                    </div>
+                </el-menu-item>
+            </el-menu-item-group>
+        </el-submenu>
+    </el-menu>
 </template>
 
 <script>
-    export default {
-        name: "index_sider"
-    }
+  export default {
+    name: 'index_sider',
+    methods: {
+      handleOpen (key, keyPath) {
+        console.log(key, keyPath)
+      },
+      handleClose (key, keyPath) {
+        console.log(key, keyPath)
+      }
+    },
+  }
 </script>
 
 <style scoped>
-    #main-nav {
-
-        margin-left: 1px;
-
-    }
-    #main-nav.nav-tabs.nav-stacked > li > a {
-        padding: 10px 8px;
-
-        font-size: 13px;
-
-        font-weight: 600;
-
-        color: #4A515B;
-
-        background: #E9E9E9;
-
-        background: -moz-linear-gradient(top, #FAFAFA 0%, #E9E9E9 100%);
-
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FAFAFA), color-stop(100%,#E9E9E9));
-
-        background: -webkit-linear-gradient(top, #FAFAFA 0%,#E9E9E9 100%);
-
-        background: -o-linear-gradient(top, #FAFAFA 0%,#E9E9E9 100%);
-
-        background: -ms-linear-gradient(top, #FAFAFA 0%,#E9E9E9 100%);
-
-        background: linear-gradient(top, #FAFAFA 0%,#E9E9E9 100%);
-
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E9E9E9');
-
-        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E9E9E9')";
-
-        border: 1px solid #D5D5D5;
-
-        border-radius: 4px;
-
-    }
-
-    #main-nav.nav-tabs.nav-stacked > li > a > span {
-
-        color: #4A515B;
-
-    }
-
-    #main-nav.nav-tabs.nav-stacked > li.active > a, #main-nav.nav-tabs.nav-stacked > li > a:hover {
-
-        color: #FFF;
-
-        background: #3C4049;
-
-        background: -moz-linear-gradient(top, #4A515B 0%, #3C4049 100%);
-
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4A515B), color-stop(100%,#3C4049));
-
-        background: -webkit-linear-gradient(top, #4A515B 0%,#3C4049 100%);
-
-        background: -o-linear-gradient(top, #4A515B 0%,#3C4049 100%);
-
-        background: -ms-linear-gradient(top, #4A515B 0%,#3C4049 100%);
-
-        background: linear-gradient(top, #4A515B 0%,#3C4049 100%);
-
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4A515B', endColorstr='#3C4049');
-
-        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#4A515B', endColorstr='#3C4049')";
-
-        border-color: #2B2E33;
-
-    }
-    #main-nav.nav-tabs.nav-stacked > li.active > a, #main-nav.nav-tabs.nav-stacked > li > a:hover > span {
-
-        color: #FFF;
-
-    }
-    #main-nav.nav-tabs.nav-stacked > li {
-
-        margin-bottom: 4px;
-
-    }
-
-    /*定义二级菜单样式*/
-
-    .secondmenu a {
-
-        font-size: 12px;
-
-        color: #4A515B;
-
-        text-align: center;
-
-    }
 </style>

@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Login from '@/components/Login'
 import Repair from '@/components/Repair'
-import Sider from '@/components/Sider'
+import Sider from '@/components/Asider'
 import Head from '@/components/Head'
 import Adduser from '@/components/Adduser'
 import Addclass from '@/components/Addclass'
@@ -17,14 +17,23 @@ import Adddepart from '@/components/Adddepart'
 import Equipinfo from '@/components/Equipinfo'
 import ChangePass from '@/components/ChangePass'
 import Documents from '@/components/Documents'
+import Main from '@/components/Main'
+import UserManage from '@/components/admin/UserManage'
+
 Vue.use(Router)
 export default new Router({
   mode: 'history',
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'Main',
+      component: Main,
+      children: [
+        {
+          path: 'user',
+          component: UserManage
+        }
+      ]
     },
     {
       path: '/login',

@@ -74,7 +74,7 @@ CREATE TABLE `manage_info` (
 DROP TABLE IF EXISTS `manage_repair`;
 CREATE TABLE `manage_repair` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `equip_id` mediumint not null COMMENT '设备编号 主键', 
+  `equip_id` mediumint not null COMMENT '设备编号 主键',
   `reason` text DEFAULT NULL COMMENT '故障原因',
   `repair_date` date COMMENT '送修日期',
   `pre_finishdate` date  COMMENT '预计交付时间',
@@ -116,7 +116,7 @@ CREATE TABLE `manage_user` (
   `username` varchar(20) NOT NULL COMMENT '用户名',
   `password` varchar(50) NOT NULL,
   `depart` tinyint NOT NULL COMMENT '归属部门id',
-  `type` tinyint NOT NULL COMMENT '用户类型',
+  `type` tinyint NOT NULL COMMENT '1检修员 2系统管理员 3 维修员',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 comment '用户表';
 -- ----------------------------
