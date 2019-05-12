@@ -71,6 +71,7 @@
 <script>
   import AddUserDialog from './AddUserDialog';
   import Page from '../common/Page';
+  import qs from 'qs';
 
   export default {
     name: 'adduser',
@@ -132,10 +133,14 @@
        */
       deleteUser(index) {
         let id = this.users[index].id;
+        let data = {
+          id: id,
+          userId: this.$cookies.get('userId')
+        };
         this.axios({
           url: this.HOST.HOST + 'user/delete',
-          method: 'get',
-          params: {id: id}
+          method: 'post',
+          data: qs.stringify(data)
         }).then(res => {
           if(res.data.code !== 0) {
             alert(res.data.message);
