@@ -3,9 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Login from '@/components/Login'
 import Repair from '@/components/Repair'
-import Sider from '@/components/Asider'
 import Head from '@/components/Head'
-import Adduser from '@/components/Adduser'
 import Addclass from '@/components/Addclass'
 import Addequip from '@/components/Addequip'
 import Abnormal from '@/components/Abnormal'
@@ -46,74 +44,64 @@ export default new Router({
       component: Repair
     },
     {
-      path: '/sider',
-      name: 'Sider',
-      component: Sider
+      path: '/head',
+      name: 'Head',
+      component: Head
     },
-      {
-          path: '/head',
-          name: 'Head',
-          component: Head
-      },
-      {
-          path: '/adduser',
-          name: 'Adduser',
-          component: Adduser
-      },
-      {
-          path: '/addclass',
-          name: 'Addclass',
-          component: Addclass
-      },
-      {
-          path: '/addequip',
-          name: 'Addequip',
-          component: Addequip
-      },
-      {
-          path: '/abnormal',
-          name: 'Abnormal',
-          component: Abnormal
-      },
-      {
-          path: '/check',
-          name: 'Check',
-          component: Check
-      },
-      {
-          path: '/reject',
-          name: 'Reject',
-          component: Reject
-      },
-      {
-          path: '/liuyan',
-          name: 'Liuyan',
-          component: Liuyan
-      },
-      {
-          path: '/register',
-          name: 'Register',
-          component: Register
-      },
-      {
-          path: '/adddepart',
-          name: 'Adddepart',
-          component: Adddepart
-      },
-      {
-          path: '/equipinfo',
-          name: 'Equipinfo',
-          component: Equipinfo
-      },
-      {
-          path: '/changepass',
-          name: 'ChangePass',
-          component: ChangePass
-      },
-      {
-          path: '/documents',
-          name: 'Documents',
-          component: Documents
-      }
+    {
+      path: '/addclass',
+      name: 'Addclass',
+      component: Addclass
+    },
+    {
+      path: '/addequip',
+      name: 'Addequip',
+      component: Addequip
+    },
+    {
+      path: '/abnormal',
+      name: 'Abnormal',
+      component: Abnormal
+    },
+    {
+      path: '/check',
+      name: 'Check',
+      component: Check
+    },
+    {
+      path: '/reject',
+      name: 'Reject',
+      component: Reject
+    },
+    {
+      path: '/liuyan',
+      name: 'Liuyan',
+      component: Liuyan
+    },
+    {
+      path: '/register',
+      name: 'Register',
+      component: Register
+    },
+    {
+      path: '/adddepart',
+      name: 'Adddepart',
+      component: Adddepart
+    },
+    {
+      path: '/equipinfo',
+      name: 'Equipinfo',
+      component: Equipinfo
+    },
+    {
+      path: '/changepass',
+      name: 'ChangePass',
+      component: ChangePass
+    },
+    {
+      path: '/documents',
+      name: 'Documents',
+      component: Documents
+    }
   ]
 })

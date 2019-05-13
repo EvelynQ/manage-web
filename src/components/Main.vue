@@ -17,7 +17,9 @@
                 <el-container>
                     <el-col :offset="3" :span="6">
                         <el-aside>
-                            <Sider></Sider>
+                            <admin-aside v-if="status == 2"></admin-aside>
+                            <check-aside v-if="status == 1"></check-aside>
+                            <repair-aside v-if="status == 3"></repair-aside>
                         </el-aside>
                     </el-col>
                     <el-col :span="12">
@@ -34,17 +36,21 @@
 
 <script>
   import Head from './Head'
-  import Sider from './Sider'
+  import AdminAside from './AdminAside'
+  import RepairAside from './RepairAside'
+  import CheckAside from './CheckAside'
 
   export default {
     name: 'Main',
     data () {
       return {
+        status: '', // 用户的身份类型
       }
     },
-    components: {Head, Sider},
+    components: {Head, AdminAside, RepairAside, CheckAside},
     created () {
       this.checkLogin()
+      this.status = this.$cookies.get('userType');
     },
     methods: {
       checkLogin () {

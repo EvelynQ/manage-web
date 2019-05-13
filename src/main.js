@@ -20,6 +20,7 @@ Vue.prototype.HOST = HOST;
 Vue.use(VueAxios, axios);
 Vue.use(VueCookies);
 Vue.use(ElementUI);
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
