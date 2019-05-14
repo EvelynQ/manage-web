@@ -180,7 +180,7 @@
           userId: this.$cookies.get('userId')
         }
         this.axios({
-          url: this.HOST.HOST + 'depart/delete',
+          url: this.HOST.HOST + 'class/delete',
           method: 'post',
           headers: {'Content-Type': 'application/x-www-form-urlencoded'},
           data: qs.stringify(data)

@@ -1,17 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import Login from '@/components/Login'
 import Repair from '@/components/Repair'
 import Head from '@/components/Head'
-import Addclass from '@/components/Addclass'
 import Addequip from '@/components/Addequip'
 import Abnormal from '@/components/Abnormal'
 import Check from '@/components/Check'
 import Reject from '@/components/Reject'
-import Liuyan from '@/components/Liuyan'
 import Register from '@/components/Register'
-import Adddepart from '@/components/Adddepart'
 import Equipinfo from '@/components/Equipinfo'
 import ChangePass from '@/components/ChangePass'
 import Documents from '@/components/Documents'
@@ -59,11 +55,6 @@ export default new Router({
       component: Head
     },
     {
-      path: '/addclass',
-      name: 'Addclass',
-      component: Addclass
-    },
-    {
       path: '/addequip',
       name: 'Addequip',
       component: Addequip
@@ -84,19 +75,9 @@ export default new Router({
       component: Reject
     },
     {
-      path: '/liuyan',
-      name: 'Liuyan',
-      component: Liuyan
-    },
-    {
       path: '/register',
       name: 'Register',
       component: Register
-    },
-    {
-      path: '/adddepart',
-      name: 'Adddepart',
-      component: Adddepart
     },
     {
       path: '/equipinfo',
