@@ -118,7 +118,7 @@ CREATE TABLE `manage_user` (
   `depart` tinyint NOT NULL COMMENT '归属部门id',
   `type` tinyint NOT NULL COMMENT '1检修员 2系统管理员 3 维修员',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 comment '用户表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 comment '用户表' auto_increment = 10000;
 -- ----------------------------
 -- Records of manage_user
 -- ----------------------------

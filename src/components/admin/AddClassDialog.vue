@@ -2,7 +2,7 @@
 *   @author Kitetop <1363215999@qq.com>
 *   @version Release: v1.0
 *   Date: 2019-05-14
-*   添加部门的弹框
+*   增加设备种类dialog
 ------------------------------------------------->
 <template>
     <div>
@@ -11,10 +11,13 @@
                 :visible.sync="show">
             <el-row>
                 <el-col>
-                    <el-form :model="departInfo" :rules="rules" ref="departInfo" label-width="100px"
+                    <el-form :model="classInfo" :rules="rules" ref="classInfo" label-width="100px"
                              class="demo-ruleForm">
-                        <el-form-item label="部门名称:" prop="depart">
-                            <el-input v-model="departInfo.depart"></el-input>
+                        <el-form-item label="种类名称:" prop="name">
+                            <el-input v-model="classInfo.name"></el-input>
+                        </el-form-item>
+                        <el-form-item label="种类描述:">
+                            <el-input v-model="classInfo.desc"></el-input>
                         </el-form-item>
                     </el-form>
                 </el-col>
@@ -22,7 +25,7 @@
             <div style="text-align: center">
                 <span slot="footer" class="dialog-footer">
                 <el-button @click="close" size="mini">取 消</el-button>
-                <el-button type="primary" size="mini" @click="submit('departInfo')">添 加</el-button>
+                <el-button type="primary" size="mini" @click="submit('classInfo')">添 加</el-button>
             </span>
             </div>
         </el-dialog>
@@ -33,16 +36,16 @@
   import qs from 'qs'
 
   export default {
-    name: 'AddUserDialog',
+    name: 'AddClassDialog',
     data () {
       return {
         show: true,
-        departs: {}, //部门列表集合
+        cla: {}, //部门列表集合
         loading: false,
-        departInfo: {depart: ''},
+        classInfo: {name: '', desc: ''},
         rules: {
-          depart: [
-            {required: true, message: '部门名称不能为空', trigger: 'blur'},
+          name: [
+            {required: true, message: '设备种类名称不能为空', trigger: 'blur'},
           ],
         },
       }
@@ -55,12 +58,12 @@
       /**
        * 提交创建
        */
-      submit (departInfo) {
-        this.$refs[departInfo].validate((valid) => {
+      submit (classInfo) {
+        this.$refs[classInfo].validate((valid) => {
           if (valid) {
-            this.addDepart()
+            this.addClass();
           } else {
-            alert('请按照要求输入部门信息')
+            alert('请按照要求输入种类信息')
           }
         })
       },
@@ -68,13 +71,13 @@
         this.$emit('show-dialog')
       },
       /**
-       * 添加用户
+       * 添加设备种类
        */
-      addDepart () {
-        let data = this.departInfo
+      addClass () {
+        let data = this.classInfo
         data.userId = this.$cookies.get('userId')
         this.axios({
-          url: this.HOST.HOST + 'depart/add',
+          url: this.HOST.HOST + 'class/add',
           method: 'post',
           data: qs.stringify(data)
         }).then(res => {
@@ -100,3 +103,4 @@
         text-align: left;
     }
 </style>
+

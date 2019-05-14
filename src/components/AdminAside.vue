@@ -46,7 +46,7 @@
                         <span>部门信息管理</span>
                     </div>
                 </el-menu-item>
-                <el-menu-item index="2-2">
+                <el-menu-item index="/class">
                     <div style="font-size: 10px">
                         <i class="el-icon-coin"></i>
                         <span>种类信息管理</span>

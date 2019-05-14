@@ -18,6 +18,7 @@ import Documents from '@/components/Documents'
 import Main from '@/components/Main'
 import UserManage from '@/components/admin/UserManage'
 import DepartManage from '@/components/admin/DepartManage'
+import ClassManage from '@/components/admin/ClassManage'
 
 Vue.use(Router)
 export default new Router({
@@ -35,6 +36,10 @@ export default new Router({
         {
           path: 'depart',
           component: DepartManage
+        },
+        {
+          path: 'class',
+          component: ClassManage
         },
       ]
     },

@@ -1,21 +1,19 @@
 <!------------------------------------------------
 *   @author Kitetop <1363215999@qq.com>
-*   @version Release: v1.0
+*   @version Release:
 *   Date: 2019-05-14
-*   部门管理的页面
 ------------------------------------------------->
 <template>
     <div>
         <!--添加用户信息弹框以及显示表头部搜索-->
-        <add-depart-dialog v-if="show"
-                           @show-dialog="showDialog"
-        ></add-depart-dialog>
-        <update-depart-dialog v-if="update"
-                              @update-dialog="showUpdate"
-                              :id="id"
+        <add-class-dialog v-if="show"
+                          @show-dialog="showDialog"
+        ></add-class-dialog>
+        <update-class-dialog v-if="update"
+                             @update-dialog="showUpdate"
+                             :id="id"
         >
-
-        </update-depart-dialog>
+        </update-class-dialog>
         <el-row>
             <el-col :span="4">
                 <el-button size="mini" type="primary" plain @click="showDialog" icon="el-icon-plus">添加</el-button>
@@ -39,19 +37,21 @@
                     <table class="table table-bordered table-hover">
                         <thead>
                         <tr class="text-danger">
-                            <th class="text-center">部门ID</th>
-                            <th class="text-center">部门名称</th>
+                            <th class="text-center">序号</th>
+                            <th class="text-center">种类名称</th>
+                            <th class="text-center">种类描述</th>
                             <th class="text-center">操作</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="text-center" v-for="(depart, index) in departs">
-                            <td>{{depart.id}}</td>
-                            <td>{{depart.depart}}</td>
+                        <tr class="text-center" v-for="(c, index) in cla">
+                            <td>{{c.id}}</td>
+                            <td>{{c.class}}</td>
+                            <td>{{c.desc}}</td>
                             <td>
-                                <el-button type="warning" size="mini" @click="updateDepart(index)" plain>修 改
+                                <el-button type="warning" size="mini" @click="updateClass(index)" plain>修 改
                                 </el-button>
-                                <el-button type="danger" size="mini" @click="deleteDepart(index)" plain>删 除
+                                <el-button type="danger" size="mini" @click="deleteClass(index)" plain>删 除
                                 </el-button>
                             </td>
                         </tr>
@@ -72,30 +72,30 @@
 </template>
 
 <script>
-  import AddDepartDialog from './AddDepartDialog'
-  import UpdateDepartDialog from './UpdateDepartDialog'
+  import AddClassDialog from './AddClassDialog'
+  import UpdateClassDialog from './UpdateClassDialog'
   import Page from '../common/Page'
   import qs from 'qs'
 
   export default {
-    name: 'adduser',
-    components: {AddDepartDialog, Page, UpdateDepartDialog},
+    name: 'classManage',
+    components: {AddClassDialog, Page, UpdateClassDialog},
     data () {
       return {
         show: false,
-        query: null, //模糊查找的用户的账号
+        query: '', //模糊查找的设备种类的名称
         total: 0,
         size: 0,
-        departs: {},
+        cla: {},
         /**
-         * 用于部门修改的更新绑定数据
+         * 用于设备种类修改的更新绑定数据
          */
         update: false,
         id: '',
       }
     },
     created () {
-      this.departList()
+      this.classList()
     },
     methods: {
       showDialog () {
@@ -105,20 +105,27 @@
         this.update = !this.update
       },
       /**
-       * 根据条件查找部门
+       * 根据条件查找设备种类列表
        */
-      search () {
+      search (page = 1, limit = 5) {
         let userId = this.$cookies.get('userId')
         this.axios({
-          url: this.HOST.HOST + 'depart/search',
+          url: this.HOST.HOST + 'class/search',
           method: 'get',
           params: {
             userId: userId,
-            query: this.query
+            query: this.query,
+            page: 1,
+            limit: limit
           }
         }).then(res => {
           if (res.data.code === 0) {
-            this.departs = res.data.data
+            let data = res.data.data
+            this.total = data.total
+            this.size = Number(data.limit)
+            delete data['total']
+            delete data['limit']
+            this.cla = data
           } else {
             alert(res.data.message)
           }
@@ -128,10 +135,10 @@
       /**
        * 获得部门列表
        */
-      departList (page = 1, limit = 5) {
+      classList (page = 1, limit = 5) {
         let userId = this.$cookies.get('userId')
         this.axios({
-          url: this.HOST.HOST + 'depart/list',
+          url: this.HOST.HOST + 'class/list',
           method: 'get',
           params: {
             userId: userId,
@@ -145,7 +152,7 @@
             this.size = Number(data.limit)
             delete data['total']
             delete data['limit']
-            this.departs = data
+            this.cla = data
           } else {
             alert(res.data.message)
           }
@@ -156,14 +163,18 @@
        * @param page
        */
       changePage (page) {
-        this.departList(page)
+        if (this.query === '') {
+          this.classList(page)
+        } else {
+          this.search(page)
+        }
       },
       /**
        * 删除指定的部门
        * @param index
        */
-      deleteDepart (index) {
-        let id = this.departs[index].id
+      deleteClass (index) {
+        let id = this.cla[index].id
         let data = {
           id: id,
           userId: this.$cookies.get('userId')
@@ -186,9 +197,9 @@
        * 更新部门信息
        * @param index
        */
-      updateDepart (index) {
-        this.id = this.departs[index].id
-        this.showUpdate();
+      updateClass (index) {
+        this.id = this.cla[index].id
+        this.showUpdate()
       }
     },
   }
@@ -199,3 +210,4 @@
         vertical-align: middle !important;
     }
 </style>
+
