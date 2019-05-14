@@ -9,12 +9,6 @@
         <add-depart-dialog v-if="show"
                            @show-dialog="showDialog"
         ></add-depart-dialog>
-        <update-depart-dialog v-if="update"
-                              @update-dialog="showUpdate"
-                              :id="id"
-        >
-
-        </update-depart-dialog>
         <el-row>
             <el-col :span="4">
                 <el-button size="mini" type="primary" plain @click="showDialog" icon="el-icon-plus">添加</el-button>
@@ -33,21 +27,29 @@
 
         <el-row>
             <el-col :span="24">
-                <!--用户信息记录表-->
+                <!--设备信息记录表-->
                 <div style="padding-top: 10px;width: 670px">
                     <table class="table table-bordered table-hover">
                         <thead>
                         <tr class="text-danger">
-                            <th class="text-center">部门ID</th>
-                            <th class="text-center">部门名称</th>
-                            <th class="text-center">操作</th>
+                            <th class="text-center">设备ID</th>
+                            <th class="text-center">设备种类</th>
+                            <th class="text-center">设备型号</th>
+                            <th class="text-center">制造厂商</th>
+                            <th class="text-center">生产日期</th>
+                            <th class="text-center">设备状态</th>
+                            <th v-if="(state !== 0) && (state !== 2) " class="text-center">操作</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="text-center" v-for="(depart, index) in departs">
-                            <td>{{depart.id}}</td>
-                            <td>{{depart.depart}}</td>
-                            <td>
+                        <tr class="text-center" v-for="(equip, index) in equips">
+                            <td>{{equip.id}}</td>
+                            <td>{{equip.className}}</td>
+                            <td>{{equip.type}}</td>
+                            <td>{{equip.facture}}</td>
+                            <td>{{equip.proyDate}}</td>
+                            <td>{{equip.state}}</td>
+                            <td v-if="(state !== 0) && (state !== 2) " >
                                 <el-button type="warning" size="mini" @click="updateDepart(index)" plain>修 改
                                 </el-button>
                                 <el-button type="danger" size="mini" @click="deleteDepart(index)" plain>删 除
@@ -78,23 +80,19 @@
 
   export default {
     name: 'EquipManage',
-    components: {AddDepartDialog, Page, UpdateDepartDialog},
+    components: {AddDepartDialog, Page},
     data () {
       return {
         show: false,
-        query: null, //模糊查找的用户的账号
+        state: 0,
+        query: '', //模糊查找的设备型号
         total: 0,
         size: 0,
-        departs: {},
-        /**
-         * 用于部门修改的更新绑定数据
-         */
-        update: false,
-        id: '',
+        equips: {},
       }
     },
     created () {
-      this.departList()
+      this.equipList()
     },
     methods: {
       showDialog () {
@@ -117,7 +115,7 @@
           }
         }).then(res => {
           if (res.data.code === 0) {
-            this.departs = res.data.data
+            this.equips = res.data.data
           } else {
             alert(res.data.message)
           }
@@ -125,12 +123,12 @@
       },
 
       /**
-       * 获得部门列表
+       * 获得设备列表
        */
-      departList (page = 1, limit = 5) {
+      equipList (page = 1, limit = 5) {
         let userId = this.$cookies.get('userId')
         this.axios({
-          url: this.HOST.HOST + 'depart/list',
+          url: this.HOST.HOST + 'equip/list',
           method: 'get',
           params: {
             userId: userId,
@@ -150,45 +148,14 @@
           }
         })
       },
+
       /**
        * 更新页数
        * @param page
        */
       changePage (page) {
-        this.departList(page)
+        this.equipList(page)
       },
-      /**
-       * 删除指定的部门
-       * @param index
-       */
-      deleteDepart (index) {
-        let id = this.departs[index].id
-        let data = {
-          id: id,
-          userId: this.$cookies.get('userId')
-        }
-        this.axios({
-          url: this.HOST.HOST + 'depart/delete',
-          method: 'post',
-          headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-          data: qs.stringify(data)
-        }).then(res => {
-          if (res.data.code !== 0) {
-            alert(res.data.message)
-          } else {
-            this.$router.push('empty')
-            this.$router.go(-1)
-          }
-        })
-      },
-      /**
-       * 更新部门信息
-       * @param index
-       */
-      updateDepart (index) {
-        this.id = this.departs[index].id
-        this.showUpdate();
-      }
     },
   }
 </script>

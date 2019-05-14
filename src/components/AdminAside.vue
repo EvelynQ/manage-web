@@ -52,7 +52,7 @@
                         <span>种类信息管理</span>
                     </div>
                 </el-menu-item>
-                <el-menu-item index="2-3">
+                <el-menu-item index="/equip">
                     <div style="font-size: 10px">
                         <i class="el-icon-s-tools"></i>
                         <span>设备信息管理</span>

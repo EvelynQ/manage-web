@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import Login from '@/components/Login'
 import Repair from '@/components/Repair'
 import Head from '@/components/Head'
-import Addequip from '@/components/Addequip'
 import Abnormal from '@/components/Abnormal'
 import Check from '@/components/Check'
 import Reject from '@/components/Reject'
@@ -15,6 +14,7 @@ import Main from '@/components/Main'
 import UserManage from '@/components/admin/UserManage'
 import DepartManage from '@/components/admin/DepartManage'
 import ClassManage from '@/components/admin/ClassManage'
+import EquipManage from '@/components/admin/EquipManage'
 
 Vue.use(Router)
 export default new Router({
@@ -37,6 +37,10 @@ export default new Router({
           path: 'class',
           component: ClassManage
         },
+        {
+          path: 'equip',
+          component: EquipManage
+        }
       ]
     },
     {
@@ -53,11 +57,6 @@ export default new Router({
       path: '/head',
       name: 'Head',
       component: Head
-    },
-    {
-      path: '/addequip',
-      name: 'Addequip',
-      component: Addequip
     },
     {
       path: '/abnormal',
