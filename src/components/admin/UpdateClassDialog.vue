@@ -61,7 +61,7 @@
       submit (classInfo) {
         this.$refs[classInfo].validate((valid) => {
           if (valid) {
-            this.addClass();
+            this.updateClass();
           } else {
             alert('请按照要求输入种类信息')
           }
@@ -73,9 +73,10 @@
       /**
        * 修改设备种类
        */
-      addClass () {
-        let data = this.classInfo
-        data.userId = this.$cookies.get('userId')
+      updateClass () {
+        let data = this.classInfo;
+        data.userId = this.$cookies.get('userId');
+        data.id = this.id;
         this.axios({
           url: this.HOST.HOST + 'class/update',
           method: 'post',

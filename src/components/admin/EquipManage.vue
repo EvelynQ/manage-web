@@ -1,8 +1,7 @@
 <!------------------------------------------------
 *   @author Kitetop <1363215999@qq.com>
-*   @version Release: v1.0
+*   @version Release:
 *   Date: 2019-05-14
-*   部门管理的页面
 ------------------------------------------------->
 <template>
     <div>
@@ -78,7 +77,7 @@
   import qs from 'qs'
 
   export default {
-    name: 'DepartManage',
+    name: 'EquipManage',
     components: {AddDepartDialog, Page, UpdateDepartDialog},
     data () {
       return {
