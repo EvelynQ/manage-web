@@ -40,7 +40,7 @@
                         <span>用户信息管理</span>
                     </div>
                 </el-menu-item>
-                <el-menu-item index="2-1">
+                <el-menu-item index="/depart">
                     <div style="font-size: 10px">
                         <i class="el-icon-s-unfold"></i>
                         <span>部门信息管理</span>

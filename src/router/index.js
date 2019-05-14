@@ -17,6 +17,7 @@ import ChangePass from '@/components/ChangePass'
 import Documents from '@/components/Documents'
 import Main from '@/components/Main'
 import UserManage from '@/components/admin/UserManage'
+import DepartManage from '@/components/admin/DepartManage'
 
 Vue.use(Router)
 export default new Router({
@@ -30,7 +31,11 @@ export default new Router({
         {
           path: 'user',
           component: UserManage
-        }
+        },
+        {
+          path: 'depart',
+          component: DepartManage
+        },
       ]
     },
     {
