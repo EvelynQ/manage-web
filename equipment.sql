@@ -56,10 +56,7 @@ CREATE TABLE `manage_info` (
   `class_id` smallint NOT NULL COMMENT '种类编号   Class外键',
   `equip_type` varchar(50) NOT NULL COMMENT '设备型号',
   `manufacture` varchar(50) DEFAULT NULL COMMENT '制造厂商',
-  `price` varchar(50) not null comment '设备价格',
   `proydate` date  COMMENT '生产日期',
-  `buydate` date  COMMENT '购买日期',
-  `pre_year` tinyint DEFAULT 5 COMMENT '使用年限',
   `equip_state` tinyint DEFAULT 0 COMMENT '设备状态-1-异常 0-运行 1-维修 2-报废',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT '设备信息表';
@@ -95,8 +92,6 @@ CREATE TABLE `manage_scrap` (
   `scrap_date` date COMMENT '报废日期',
   `scrap_reason` text DEFAULT NULL COMMENT '报废原因',
   `request_man` smallint NOT NULL COMMENT '申请人id',
-  `oldprice` varchar(50) NOT NULL COMMENT '原价',
-  `scrapprice` varchar(50) NOT NULL COMMENT '折旧价',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 comment '设备报废表';
 

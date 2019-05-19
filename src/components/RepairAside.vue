@@ -34,16 +34,16 @@
                 </div>
             </template>
             <el-menu-item-group>
-                <el-menu-item index="2-1">
+                <el-menu-item index="/repair/list">
                     <div style="font-size: 10px">
                         <i class="el-icon-document"></i>
-                        <span>维修信息列表</span>
+                        <span>维修列表</span>
                     </div>
                 </el-menu-item>
-                <el-menu-item index="2-1">
+                <el-menu-item index="/repair/task">
                     <div style="font-size: 10px">
                         <i class="el-icon-document-add"></i>
-                        <span>记录信息列表</span>
+                        <span>任务列表</span>
                     </div>
                 </el-menu-item>
             </el-menu-item-group>

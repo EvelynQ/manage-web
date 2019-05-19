@@ -15,6 +15,8 @@ import UserManage from '@/components/admin/UserManage'
 import DepartManage from '@/components/admin/DepartManage'
 import ClassManage from '@/components/admin/ClassManage'
 import EquipManage from '@/components/admin/EquipManage'
+import RepairList from '@/components/repair/RepairList'
+import TaskList from '@/components/repair/TaskList'
 
 Vue.use(Router)
 export default new Router({
@@ -40,6 +42,14 @@ export default new Router({
         {
           path: 'equip',
           component: EquipManage
+        },
+        {
+          path: 'repair/list',
+          component: RepairList
+        },
+        {
+          path: 'repair/task',
+          component: TaskList
         }
       ]
     },
