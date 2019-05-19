@@ -76,10 +76,8 @@ CREATE TABLE `manage_repair` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `equip_id` mediumint not null COMMENT '设备编号 主键',
   `reason` text DEFAULT NULL COMMENT '故障原因',
-  `repair_date` date COMMENT '送修日期',
-  `pre_finishdate` date  COMMENT '预计交付时间',
-  `repair_fee` varchar(50) DEFAULT 0 COMMENT '维修费用',
-  `repair_man` varchar(50) NOT NULL COMMENT '维修人员联系方式',
+  `repair_man` smallint(11) NOT NULL  COMMENT '维修人员id',
+  `finish` tinyint NOT NULL  COMMENT '0 未维修好 1 维修完成',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT '设备维修表';
 
@@ -120,7 +118,7 @@ CREATE TABLE `manage_user` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 comment '用户表' auto_increment = 10000;
 -- ----------------------------
--- Records of manage_user
+-- Records of manage_depart
 -- ----------------------------
 
 DROP TABLE IF EXISTS `manage_depart`;

@@ -48,7 +48,7 @@
                             <th class="text-center">制造厂商</th>
                             <th class="text-center">生产日期</th>
                             <th class="text-center">设备状态</th>
-                            <th v-if="(state !== 0) && (state !== 2) " class="text-center">操作</th>
+                            <th v-if="state == -1" class="text-center">操作</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -59,10 +59,8 @@
                             <td>{{equip.facture}}</td>
                             <td>{{equip.proyDate}}</td>
                             <td>{{equip.state}}</td>
-                            <td v-if="(state !== 0) && (state !== 2) ">
-                                <el-button type="warning" size="mini" @click="updateDepart(index)" plain>修 改
-                                </el-button>
-                                <el-button type="danger" size="mini" @click="deleteDepart(index)" plain>删 除
+                            <td v-if="state == -1">
+                                <el-button type="primary" size="mini" @click="Repair(index)" plain>维 修
                                 </el-button>
                             </td>
                         </tr>
@@ -149,6 +147,24 @@
             this.equips = data
           } else {
             alert(res.data.message)
+          }
+        })
+      },
+      Repair(index) {
+        let data = {
+          id: this.equips[index].id,
+          userId: this.$cookies.get('userId')
+        };
+        this.axios({
+          url: this.HOST.HOST + 'equip/repair',
+          method: 'post',
+          data: qs.stringify(data)
+        }).then(res => {
+          if(res.data.code !== 0) {
+            alert(res.data.message);
+          }else {
+            this.$router.push('empty');
+            this.$router.go(-1);
           }
         })
       },
