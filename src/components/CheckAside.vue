@@ -18,7 +18,7 @@
                         <span>修改信息</span>
                     </div>
                 </el-menu-item>
-                <el-menu-item index="1-2">
+                <el-menu-item index="/changePass">
                     <div style="font-size: 10px">
                         <i class="el-icon-warning-outline"></i>
                         <span>修改密码</span>
@@ -34,13 +34,13 @@
                 </div>
             </template>
             <el-menu-item-group>
-                <el-menu-item index="3-1">
+                <el-menu-item index="/check/equip">
                     <div style="font-size: 10px">
                         <i class="el-icon-view"></i>
                         <span>检查信息录入</span>
                     </div>
                 </el-menu-item>
-                <el-menu-item index="3-2">
+                <el-menu-item index="/destroy/list">
                     <div style="font-size: 10px">
                         <i class="el-icon-delete"></i>
                         <span>报废信息列表</span>

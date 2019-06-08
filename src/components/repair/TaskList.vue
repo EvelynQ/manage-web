@@ -10,6 +10,7 @@
         <reason-dialog v-if="show"
                        @show-dialog="showDialog"
                        :id="id"
+                       :equipId="equipId"
                        :type="type"
         ></reason-dialog>
         <el-row>
@@ -72,6 +73,7 @@
         state: 1,
         total: 0,
         size: 0,
+        equipId: '',
         equips: {},
       }
     },
@@ -119,7 +121,8 @@
         this.showDialog()
       },
       destroyEquip (index, type) {
-        this.id = this.equips[index].id
+        this.id = this.equips[index].id;
+        this.equipId = this.equips[index].equip_id;
         this.type = type
         this.showDialog()
       },

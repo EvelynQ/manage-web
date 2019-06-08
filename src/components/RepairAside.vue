@@ -18,7 +18,7 @@
                         <span>修改信息</span>
                     </div>
                 </el-menu-item>
-                <el-menu-item index="1-2">
+                <el-menu-item index="/changePass">
                     <div style="font-size: 10px">
                         <i class="el-icon-warning-outline"></i>
                         <span>修改密码</span>

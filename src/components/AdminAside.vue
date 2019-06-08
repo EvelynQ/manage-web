@@ -12,7 +12,7 @@
                 </div>
             </template>
             <el-menu-item-group>
-                <el-menu-item index="1-1">
+                <el-menu-item index="/changePass">
                     <div style="font-size: 10px">
                         <i class="el-icon-edit"></i>
                         <span>修改信息</span>

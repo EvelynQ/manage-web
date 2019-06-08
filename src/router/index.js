@@ -3,13 +3,10 @@ import Router from 'vue-router'
 import Login from '@/components/Login'
 import Repair from '@/components/Repair'
 import Head from '@/components/Head'
-import Abnormal from '@/components/Abnormal'
 import Check from '@/components/Check'
-import Reject from '@/components/Reject'
 import Register from '@/components/Register'
 import Equipinfo from '@/components/Equipinfo'
 import ChangePass from '@/components/ChangePass'
-import Documents from '@/components/Documents'
 import Main from '@/components/Main'
 import UserManage from '@/components/admin/UserManage'
 import DepartManage from '@/components/admin/DepartManage'
@@ -17,6 +14,8 @@ import ClassManage from '@/components/admin/ClassManage'
 import EquipManage from '@/components/admin/EquipManage'
 import RepairList from '@/components/repair/RepairList'
 import TaskList from '@/components/repair/TaskList'
+import EquipCheck from '../components/check/EquipCheck'
+import DstroyList from '../components/check/DstroyList'
 
 Vue.use(Router)
 export default new Router({
@@ -50,7 +49,20 @@ export default new Router({
         {
           path: 'repair/task',
           component: TaskList
-        }
+        },
+        {
+          path: 'check/equip',
+          component: EquipCheck,
+        },
+        {
+          path: 'destroy/list',
+          component: DstroyList
+        },
+        {
+          path: '/changePass',
+          name: 'ChangePass',
+          component: ChangePass
+        },
       ]
     },
     {
@@ -69,19 +81,9 @@ export default new Router({
       component: Head
     },
     {
-      path: '/abnormal',
-      name: 'Abnormal',
-      component: Abnormal
-    },
-    {
       path: '/check',
       name: 'Check',
       component: Check
-    },
-    {
-      path: '/reject',
-      name: 'Reject',
-      component: Reject
     },
     {
       path: '/register',
@@ -93,15 +95,6 @@ export default new Router({
       name: 'Equipinfo',
       component: Equipinfo
     },
-    {
-      path: '/changepass',
-      name: 'ChangePass',
-      component: ChangePass
-    },
-    {
-      path: '/documents',
-      name: 'Documents',
-      component: Documents
-    }
+
   ]
 })

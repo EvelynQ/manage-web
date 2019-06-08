@@ -29,11 +29,11 @@
 </template>
 
 <script>
-  import qs from 'qs';
+  import qs from 'qs'
 
   export default {
     name: 'ReasonDialog',
-    props: ['id', 'type'],
+    props: ['id', 'type', 'equipId'],
     data () {
       return {
         show: true,
@@ -53,7 +53,7 @@
         if (type === 0) {
           this.finish(this.id)
         } else {
-          this.destroyEquip(this.id)
+          this.destroyEquip(this.equipId, this.id)
         }
       },
       /**
@@ -71,9 +71,32 @@
           method: 'post',
           data: qs.stringify(data)
         }).then(res => {
-          alert(res.data.message);
-          this.$router.push('empty');
-          this.$router.go(-1);
+          alert(res.data.message)
+          this.$router.push('empty')
+          this.$router.go(-1)
+        })
+      },
+
+      /**
+       * 对指定的设备进行报废操作
+       * @param equipId
+       * @param repairId
+       */
+      destroyEquip (equipId, repairId) {
+        let data = {
+          equipId: equipId,
+          repairId: repairId,
+          userId: this.$cookies.get('userId'),
+          reason: this.reason
+        }
+        this.axios({
+          url: this.HOST.HOST + 'scrap/add',
+          method: 'post',
+          data: qs.stringify(data)
+        }).then(res => {
+          alert(res.data.message)
+          this.$router.push('empty')
+          this.$router.go(-1)
         })
       },
       close () {
